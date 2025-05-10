@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso Seguro</title>
+    <link rel="stylesheet" href="src/css/bootstrap.css" />
+    <link rel="stylesheet" href="src/css/estilos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body class="vh-100 d-flex flex-column" onload="carregar()">
+
+    <section class="bg-verde text-white py-3 mb-5">
+        <h2 class="text-center">LOGIN</h2>
+    </section>
+
+    <main class="flex-grow-1 d-flex justify-content-center align-items-center">
+        <div class="shadow-lg rounded-3 p-5 bg-light" style="width: 95%; max-width: 420px;">
+            <form id="acessoForm" autocomplete="off">
+                <legend class="mb-4 text-center">Faça seu Login</legend>
+                <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                        <label for="usuario" class="form-label">
+                            Usuário <i class="bi bi-person-fill"></i>
+                        </label>
+                        <input type="text" id="usuario" name="usuario" class="form-control" required>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="chave" class="form-label">
+                            Senha <i class="bi bi-lock-fill"></i>
+                        </label>
+                        <input type="password" id="chave" name="chave" class="form-control" required>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between mt-4">
+                    <button type="button" class="btn bg-verde text-white border-none"
+                        onclick="window.open('https://www.odiloncorrea.com/odinline/loginFormulario.php', '_blank')">CADASTRAR</button>
+                    <button type="button" class="btn bg-verde text-white border-none"
+                        onclick="autenticar()">LOGAR</button>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="bg-verde text-white text-center py-3 mt-auto">
+        <small>OdinLine&copy; 2025</small>
+    </footer>
+
+    <script src="src/js/bootstrap.js"></script>
+    <script src="src/js/jquery.js"></script>
+    <script src="src/js/jquery.mask.js"></script>
+    <script src="src/js/jquery.validate.js"></script>
+    <script src="src/js/index.js"></script>
+</body>
+
+</html>

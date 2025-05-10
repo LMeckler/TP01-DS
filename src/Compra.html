@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Compras</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100" onload="carregar()">
+    <nav class="bg-verde text-white py-3 mb-4 d-flex justify-content-between align-items-center">
+        <div>
+            <span class="border-0 rounded p-2 ms-2">
+                <a href="Menu.html" class="text-white text-decoration-none">
+                    <i class="bi bi-house"></i>
+                </a>
+            </span>
+            <span class="border-0 rounded p-2 ms-1">
+                <a href="Alerta.html" class="text-white text-decoration-none">
+                    <i class="bi bi-graph-up-arrow"></i>
+                </a>
+            </span>
+        </div>
+        <div class="me-2">
+            <span class="border-0 rounded p-2">
+                <a href="/Index.html" class="text-white text-decoration-none">
+                    <i class="bi bi-box-arrow-left"></i>
+                </a>
+            </span>
+        </div>
+    </nav>
+    <main class="container mt-1">
+        <h2 class="text-center fw-bold border-bottom-vermelho">Histórico de Compras</h2>
+        <table class="table table-striped mt-4" id="tabelaCompras">
+            <thead class="table-light">
+                <tr>
+                    <th>Item</th>
+                    <th>Preço</th>
+                    <th>Data</th>
+                    <th>Horário</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Itens inseridos dinamicamente -->
+            </tbody>
+        </table>
+        <div id="modalDetalhe" style="display:none;">
+            <h2 class="text-center fw-bold border-bottom border-bottom-vermelho"></h2>
+            <div class="d-flex justify-content-center mt-4">
+                <img id="imagemDetalhe" style="width: 0;" />
+            </div>
+            <div class="d-flex justify-content-end mt-auto mb-3">
+                <button class="btn btn-vermelho" id="btnFecharModal" onclick="fecharJanelaFlutuante()">Fechar</button>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-verde text-white text-center py-3 mt-auto">
+        <small>OdinLine&copy; 2025</small>
+    </footer>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mask.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/compra.js"></script>
+    <script>
+        const agora = new Date();
+        const data = agora.toLocaleDateString('pt-BR');
+        const hora = agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+
+        usuarioCompras.push({
+            id: produtoSelecionado.id,
+            descricao: produtoSelecionado.descricao,
+            valor: produtoSelecionado.valor,
+            urlImagem: produtoSelecionado.urlImagem || '',
+            data: data,
+            hora: hora
+        });
+        localStorage.setItem('usuarioCompras', JSON.stringify(usuarioCompras));
+
+        function adicionarLinha(tabela, compra) {
+            var corpoTabela = $(tabela).find("tbody");
+            var novaLinha = $("<tr></tr>");
+
+            $("<td></td>").text(compra.descricao).appendTo(novaLinha);
+            $("<td></td>").text(compra.valor).appendTo(novaLinha);
+            $("<td></td>").text(compra.data || '').appendTo(novaLinha);
+            $("<td></td>").text(compra.hora || '').appendTo(novaLinha);
+
+            var colunaVisualizar = $("<td></td>").addClass("d-flex justify-content-end");
+            var visualizar = $("<button></button>")
+                .addClass("btn btn-verde")
+                .attr("id", compra.id)
+                .attr("onclick", "visualizarProduto(this.id)")
+                .html('<i class="bi bi-eye"></i>');
+            visualizar.appendTo(colunaVisualizar);
+            colunaVisualizar.appendTo(novaLinha);
+
+            novaLinha.appendTo(corpoTabela);
+        }
+    </script>
+</body>
+
+</html>

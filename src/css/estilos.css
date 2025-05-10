@@ -1,0 +1,76 @@
+.error {
+	color: red;
+	font-size: 14px;
+}
+
+#janelaFlutuante {
+	display: none;
+	flex-direction: column;
+	justify-content: space-between;
+
+	position: fixed;
+	top: 10%;
+	left: 10%;
+	width: 80%;
+	height: 85%;
+	background-color: white;
+	border: 2px solid black;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	padding: 20px;
+	z-index: 1000;
+}
+
+.thead-vermelho {
+	background-color: #f31a1af5 !important;
+	color: #fff !important;
+	font-weight: bold !important;
+}
+
+/* BOTÕES */
+.btn-vermelho {
+	background-color: #9e0707 !important;
+	color: #fff !important;
+	border: none !important;
+}
+
+.btn-verde {
+	background-color: #014b0b !important;
+	color: #fff !important;
+	border: none !important;
+}
+
+/* BACKGROUND */
+.bg-verde {
+	background-color: #014b0b !important;
+}
+
+.bg-vermelho {
+	background-color: #f31a1af5 !important;
+}
+
+
+/* TEXTOS */
+.text-verde {
+	color: #014b0b !important;
+}
+
+.text-vermelho {
+	color: #9e0707 !important;
+}
+
+
+/* BORDAS */
+.borda-vermelha {
+	border: 2px solid #9e0707 !important;
+}
+
+.border-bottom-vermelho {
+	border-bottom: 2px solid #9e0707 !important;
+}
+
+
+
+.swal2-actions {
+    justify-content: center !important; /* Centraliza os botões */
+    gap: 1.5rem !important;             /* Espaçamento entre eles */
+}
